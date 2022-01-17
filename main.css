@@ -1,87 +1,88 @@
-:root{
-    --dark-green : #064E3B;
-    --faint-green: #A7F3D0;
+:root {
+  --dark-green: #064e3b;
+  --faint-green: #a7f3d0;
 }
-*{
-    box-sizing: border-box;
-}
-
-body{
-    margin: 0;
+* {
+  box-sizing: border-box;
 }
 
-.section{
-
-    width: 100%;
-    max-width: 500px;
-    min-height: 200px;
-    margin: auto;
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: var(--dark-green);
-
+body {
+  margin: 0;
 }
 
-h1, p{
-    color: white;
+.section {
+  width: 100%;
+  max-width: 500px;
+  min-height: 200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: var(--dark-green);
 }
 
-.label{
-    font-size: 1.3rem;
-    padding: 1.5rem 1rem 0.5rem;
-    color: var(--faint-green);
+h1,
+p {
+  color: white;
 }
 
-
-input{
-    width: 100%;
-    padding: 1rem;
-    height: 50px;
-    display: block;
+.label {
+  font-size: 1.3rem;
+  padding: 1.5rem 1rem 0.5rem;
+  color: var(--faint-green);
 }
 
-button{
-    padding: 0.5rem 1rem;
-    display: block;
-    font-size: 1rem;
-    border: none;
-    margin: 1rem auto 0;
-    background-color:var(--faint-green);
-    color: var(--dark-green);
-    font-weight: bold;
+input {
+  width: 100%;
+  padding: 1rem;
+  height: 50px;
+  display: block;
 }
 
-.Cash_Given{
-    display: none;
-}
-.change_return{
-    display: none;
-}
-.error_msg{
-    padding-top: 1rem;
-    color:white;
-}
-#output{
-    margin: 1rem 0;    
+button {
+  padding: 0.5rem 1rem;
+  display: block;
+  font-size: 1rem;
+  border: none;
+  margin: 1rem auto 0;
+  background-color: var(--faint-green);
+  color: var(--dark-green);
+  font-weight: bold;
 }
 
-#output table, th, td{
-    padding: 0.2rem;
-    color: var(--dark-green);
-    background-color:var(--faint-green);
-    border: 2px solid var(--dark-green) ;
-    border-collapse: collapse;
+.Cash_Give {
+  display: none;
 }
-.noOfNotes{
-    background-color:black;
-    font-weight: bold;
+.change_return {
+  display: none;
 }
-
-table{
-    width: 100%;
-    table-layout: fixed;
+.error_msg {
+  padding-top: 1rem;
+  color: white;
+}
+#output {
+  margin: 1rem 0;
 }
 
-th,td{
-    word-wrap: break-word;
+#output table,
+th,
+td {
+  padding: 0.2rem;
+  color: var(--dark-green);
+  background-color: var(--faint-green);
+  border: 2px solid var(--dark-green);
+  border-collapse: collapse;
+}
+.noOfNotes {
+  background-color: black;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  word-wrap: break-word;
 }

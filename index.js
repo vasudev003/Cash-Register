@@ -15,73 +15,70 @@ const noOfNotes = document.querySelectorAll(".noofnotes");
 
 const NotesAmt = [2000, 500, 100, 20, 10, 5, 1];
 
-nextButton.addEventListener('click', ()=>{
-    hideError();
-    if(Number(billAmount.value)>0){
-        nextButton.style.display = "none";
-        cashGivendiv.style.display = "block";
-    }
-    else{
-        showError("Enter valid bill Amount");
-    }
-})
+nextButton.addEventListener("click", () => {
+  hideError();
+  if (Number(billAmount.value) > 0) {
+    nextButton.style.display = "none";
+    cashGivendiv.style.display = "block";
+  } else {
+    showError("Enter valid bill Amount");
+  }
+});
 
-chckButton.addEventListener('click', ()=> {
-    clearNoOfNotes();
-    hideError();
-    let billAmtValue= Number(billAmount.value);
-    let cashGivenValue= Number(cashGiven.value);
+chckButton.addEventListener("click", () => {
+  clearNoOfNotes();
+  hideError();
+  let billAmtValue = Number(billAmount.value);
+  let cashGivenValue = Number(cashGiven.value);
 
-    if(billAmtValue>0 && cashGivenValue>0){
-        if(!Number.isInteger(cashGivenValue)){
-            showError("Enter valid amount in cash given field");
-            return;
-        }
-        if (billAmtValue > cashGivenValue){
-            showError("cash is less then bill, please enter right amount");
-            return;
-        }
-    calculateNote(billAmtValue,cashGivenValue);
+  if (billAmtValue > 0 && cashGivenValue > 0) {
+    if (!Number.isInteger(cashGivenValue)) {
+      showError("Enter valid amount in cash given field");
+      return;
     }
-    else{
-        showError("Enter valid bill amount and cash given to continue");
+    if (billAmtValue > cashGivenValue) {
+      showError("cash is less then bill, please enter right amount");
+      return;
     }
-})
+    calculateNote(billAmtValue, cashGivenValue);
+  } else {
+    showError("Enter valid bill amount and cash given to continue");
+  }
+});
 
-function calculateNote(bill,cash){
-    let returnAmt = cash-bill;
-    if (returnAmt<1){
-        showError("No Amount should be Return");
-        return;
-    }
-    cashReturn.style.display = "block";
-    for (let i=0; i<NotesAmt.length; i++){
-        returnAmt= compare(returnAmt, cashReturn[i], i);
-    }
+function calculateNote(bill, cash) {
+  let returnAmt = cash - bill;
+  if (returnAmt < 1) {
+    showError("No Amount should be Return");
+    return;
+  }
+  cashReturn.style.display = "block";
+  for (let i = 0; i < NotesAmt.length; i++) {
+    returnAmt = compare(returnAmt, NotesAmt[i], i);
+  }
 }
 
-function compare(reminder, noteAmt, index){
-    if(reminder >= noteAmt){
-        let notes = Math.floor(reminder/noteAmt);
-        reminder = reminder - notes*noteAmt;
-        noOfNotes[index].innerText = `${notes}`;
-    }
-    return reminder
+function compare(reminder, noteAmt, index) {
+  if (reminder >= noteAmt) {
+    let notes = Math.floor(reminder / noteAmt);
+    reminder = reminder - notes * noteAmt;
+    noOfNotes[index].innerText = `${notes}`;
+  }
+  return reminder;
 }
 
-function clearNoOfNotes(){
-    for(let notes of noOfNotes){
-        notes.innerText = "";
-    }
+function clearNoOfNotes() {
+  for (let notes of noOfNotes) {
+    notes.innerText = "";
+  }
 }
 
-function showError(text){
-    errormsg.style.display = "block";
-    errormsg.innerText= text;
-    cashReturn.style.display = "none";
+function showError(text) {
+  errormsg.style.display = "block";
+  errormsg.innerText = text;
+  cashReturn.style.display = "none";
 }
 
-function hideError(){
-    errormsg.style.display = "none";
+function hideError() {
+  errormsg.style.display = "none";
 }
-
